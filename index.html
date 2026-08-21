@@ -303,8 +303,7 @@
 
 <script>
 /* ============ 配置 ============ */
-const API_KEY = 'app-Tl3Dvzia2BVnnlS1AGdALETA';   // Dify 应用 API 密钥（知识库模式）
-const API_BASE = 'https://api.dify.ai/v1';
+const API_BASE = 'https://payouhui-gateway-l6atv2x56-zl12.vercel.app';   // Vercel 中转（Key 藏在服务器端，网页无 Key）
 
 /* ============ 会话存储 ============ */
 const LS_CONVS = 'payouhui_convs_v1';
@@ -436,7 +435,7 @@ function toast(t) {
 async function send(q) {
   q = (q || input.value).trim();
   if (!q) return;
-  if (!API_KEY) { toast('聊天接口未配置：请先在 Dify 应用中创建 API 密钥'); return; }
+  if (API_BASE.indexOf('WORKER名') !== -1) { toast('中转地址未配置：请先部署 Cloudflare Worker 并填入地址'); return; }
   if (!curConv()) startNewConv();
   const c = curConv();
   if (c.title === '新对话') c.title = q.slice(0, 18);
@@ -462,7 +461,7 @@ async function send(q) {
     };
     const r = await fetch(API_BASE + '/chat-messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + API_KEY },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     });
     if (!r.ok || !r.body) { throw new Error('接口错误 ' + r.status); }
