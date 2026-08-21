@@ -243,7 +243,7 @@
   <!-- 侧栏 -->
   <aside class="sidebar">
     <div class="logo">
-      <div class="logo-icon"><img src="形象.png" alt=""></div>
+      <div class="logo-icon"><img src="形象2.png" alt=""></div>
       <div>
         <div class="logo-name">帕友慧</div>
         <div class="logo-sub">运动障碍诊疗助手</div>
@@ -280,7 +280,7 @@
     </div>
 
     <div class="content">
-      <div class="doctor-card"><img src="形象.png" alt="帕友慧"></div>
+      <div class="doctor-card"><img src="形象2.png" alt="帕友慧"></div>
 
       <div class="chat-card">
         <div class="msg-list" id="msgList">
@@ -397,7 +397,7 @@ function msgHTML(m, idx) {
       `<span class="act" data-act="retry" data-idx="${idx}">🔄 重新回答</span></div>`;
   }
   return `<div class="msg ${m.role}">` +
-    `<div class="ava">${isUser ? '<span style="color:#fff;font-size:14px">我</span>' : '<img src="形象.png">'}</div>` +
+    `<div class="ava">${isUser ? '<span style="color:#fff;font-size:14px">我</span>' : '<img src="形象2.png">'}</div>` +
     `<div class="bubble">${content}${actions}</div></div>`;
 }
 function escapeHTML(s) {
@@ -446,10 +446,10 @@ async function send(q) {
   const list = document.getElementById('msgList');
   const bubbleEl = document.createElement('div');
   bubbleEl.className = 'msg assistant';
-  bubbleEl.innerHTML = '<div class="ava"><img src="形象.png"></div><div class="bubble"></div>';
+  bubbleEl.innerHTML = '<div class="ava"><img src="形象2.png"></div><div class="bubble"></div>';
   list.appendChild(bubbleEl);
   const bubble = bubbleEl.querySelector('.bubble');
-  bubble.innerHTML = '<div class="think-ui"><div class="think-avatar"><img src="形象.png"></div><div class="think-text">请稍后，张雷医生在思考，尽快回复您<span class="dots"><i>.</i><i>.</i><i>.</i></span></div></div>';
+  bubble.innerHTML = '<div class="think-ui"><div class="think-avatar"><img src="形象2.png"></div><div class="think-text">请稍后，张雷医生在思考，尽快回复您<span class="dots"><i>.</i><i>.</i><i>.</i></span></div></div>';
   const procStart = Date.now();
   let retrieval = [];
   list.scrollTop = 1e9;
